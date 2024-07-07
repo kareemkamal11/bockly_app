@@ -11,7 +11,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 25),
       child: Row(
         children: [
           SvgPicture.asset(
@@ -21,13 +21,7 @@ class CustomAppBar extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            onPressed: () {
-              // double a = Constants.maxHeight(context);
-              // print(a);
-              // double b = 375 / 134;
-              // print(b);
-              // print(a / b);
-            },
+            onPressed: () {},
             icon: const Icon(
               FontAwesomeIcons.magnifyingGlass,
             ),
