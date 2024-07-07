@@ -10,7 +10,7 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  const SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25),
         child: Column(
@@ -18,8 +18,8 @@ class HomeViewBody extends StatelessWidget {
           children: [
             CustomAppBar(),
             FeaturedBooksListView(),
-            SizedBox(height: 70),
-            Text('Best Seller', style: Styles.tittleMdeium),
+            SizedBox(height: 50),
+            Text('Best Seller', style: Styles.titleMedium),
             SizedBox(height: 20),
             BeseSellerList(),
           ],
