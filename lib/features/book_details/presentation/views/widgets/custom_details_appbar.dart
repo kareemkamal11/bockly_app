@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,13 +9,12 @@ class CustomDetailsAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, right: 25, top: 35),
+      padding: const EdgeInsets.only(top: 35),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
             onPressed: () {
-              // Go back to the previous page
               GoRouter.of(context).go(AppRouter.kHomeViewRoute);
             },
             icon: const Icon(
