@@ -8,17 +8,20 @@ class SimilarBooksList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: Constants.maxHeight(context) * 0.16,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5.0),
-            child: CustomBookImage(),
-          );
-        },
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 5),
+      child: SizedBox(
+        height: Constants.maxHeight(context) * 0.16,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5.0),
+              child: CustomBookImage(),
+            );
+          },
+        ),
       ),
     );
   }
