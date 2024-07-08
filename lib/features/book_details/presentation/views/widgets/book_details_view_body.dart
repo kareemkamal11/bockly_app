@@ -29,9 +29,14 @@ class BookDetailsViewBody extends StatelessWidget {
             maxLines: 2,
           ),
           const SizedBox(height: 13),
-          const Text('Rudyard Kipling', style: Styles.textSmall),
-          const SizedBox(height: 30),
-          const BookRating()
+          Text('Rudyard Kipling',
+              style: Styles.textSmall.copyWith(
+                color: Colors.white.withOpacity(0.7),
+              )),
+          const SizedBox(height: 20),
+          const BookRating(
+            mainAxisAlignment: MainAxisAlignment.center,
+          )
         ],
       ),
     );

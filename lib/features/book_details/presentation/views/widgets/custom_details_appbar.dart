@@ -9,7 +9,7 @@ class CustomDetailsAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 35),
+      padding: const EdgeInsets.only(top: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -22,7 +22,6 @@ class CustomDetailsAppBar extends StatelessWidget {
               size: 30,
             ),
           ),
-          const Spacer(),
           IconButton(
             onPressed: () {},
             icon: const Icon(
