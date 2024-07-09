@@ -60,7 +60,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
       () {
         // use GoRouter to navigate to HomeView
         GoRouter.of(context).go(AppRouter.kHomeViewRoute);
-
       },
       //   return Get.to(
       // () => const HomeView(),

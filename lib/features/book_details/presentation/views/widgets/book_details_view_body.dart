@@ -26,7 +26,6 @@ class BookDetailsViewBody extends StatelessWidget {
                       const CustomDetailsAppBar(),
                       const BooksDetailsSection(),
                       const BookDetailsButtons(),
-
                       const Expanded(child: SizedBox(height: 30)),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -49,4 +48,3 @@ class BookDetailsViewBody extends StatelessWidget {
     );
   }
 }
-

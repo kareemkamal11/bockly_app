@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../home/presentation/views/widgets/book_list_item.dart';

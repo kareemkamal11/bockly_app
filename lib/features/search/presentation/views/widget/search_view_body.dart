@@ -2,7 +2,6 @@ import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-import '../../../../home/presentation/views/widgets/book_list_item.dart';
 import 'custom_search_text_field.dart';
 import 'search_result_list.dart';
 
@@ -28,4 +27,3 @@ class SearchViewBody extends StatelessWidget {
     );
   }
 }
-
