@@ -3,6 +3,7 @@ import 'package:bookly_app/core/utils/apis_severce.dart';
 import 'package:bookly_app/features/home/data/models/bookmodel/bookmodel.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApisSeverce apisSeverce;
@@ -21,7 +22,10 @@ class HomeRepoImpl implements HomeRepo {
       return right(books);
     } on Exception catch (e) {
       print(e);
-      return left(ServerFailure());
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      }
+      return left(ServerFailure(e.toString()));
     }
   }
 
