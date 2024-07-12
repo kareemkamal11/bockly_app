@@ -9,4 +9,16 @@ abstract class NewesBookListState extends Equatable {
 
 class NewesBookListInitial extends NewesBookListState {}
 
+class NewesBookListLoading extends NewesBookListState {}
 
+class NewesBookListError extends NewesBookListState {
+  final String message;
+
+  const NewesBookListError({required this.message});
+}
+
+class NewesBookListSuccess extends NewesBookListState {
+  final List<BookModel> books;
+
+  const NewesBookListSuccess({required this.books});
+}

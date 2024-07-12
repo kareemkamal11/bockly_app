@@ -11,8 +11,6 @@ class FeaturedbooksInitial extends FeaturedbooksState {}
 
 class FeaturedbooksLoading extends FeaturedbooksState {}
 
-class FeaturedbooksLoaded extends FeaturedbooksState {}
-
 class FeaturedbooksError extends FeaturedbooksState {
   final String message;
 
