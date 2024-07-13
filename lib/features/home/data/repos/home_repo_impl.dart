@@ -8,7 +8,7 @@ import 'package:dio/dio.dart';
 class HomeRepoImpl implements HomeRepo {
   final ApisSeverce apisSeverce;
 
-  HomeRepoImpl({required this.apisSeverce});
+  HomeRepoImpl(this.apisSeverce);
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
