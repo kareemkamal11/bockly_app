@@ -23,6 +23,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
     initSlidingAnimation();
 
     navigateToHome();
+
+    // config api service 
+    
   }
 
   @override
@@ -58,14 +61,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        // use GoRouter to navigate to HomeView
         GoRouter.of(context).go(AppRouter.kHomeViewRoute);
       },
-      //   return Get.to(
-      // () => const HomeView(),
-      //   transition: Transition.fade,
-      //   duration:  Constants.kTranstionDuration,
-      // );
     );
   }
 

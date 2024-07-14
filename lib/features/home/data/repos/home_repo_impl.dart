@@ -1,3 +1,5 @@
+// ignore_for_file: unused_catch_clause
+
 import 'package:bookly_app/core/errors/failures.dart';
 import 'package:bookly_app/core/utils/apis_severce.dart';
 import 'package:bookly_app/features/home/data/models/bookmodel/bookmodel.dart';
@@ -6,22 +8,27 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl implements HomeRepo {
-  final ApisSeverce apisSeverce;
+  final ApisSeverce apiSeverce;
 
-  HomeRepoImpl(this.apisSeverce);
+  HomeRepoImpl(this.apiSeverce);
 
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
-      var data = await apisSeverce.get(
-          endpoint: 'volumes?q=programming&filter=free-ebooks&Sorting=newset');
+      var data = await apiSeverce.get(
+          endpoint: 'volumes?q=programming&Sorting=newset');
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+        try {
+          books.add(BookModel.fromJson(item));
+        } on Exception catch (e) {
+          books.add(BookModel.fromJson(item));
+        }
       }
+      
       return right(books);
     } on Exception catch (e) {
-      print(e);
+      print('Error is ${e.toString()}');
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
       }
@@ -32,7 +39,7 @@ class HomeRepoImpl implements HomeRepo {
   @override
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
-      var data = await apisSeverce.get(
+      var data = await apiSeverce.get(
           endpoint: 'volumes?q=programming&filter=free-ebooks');
       List<BookModel> books = [];
       for (var item in data['items']) {
