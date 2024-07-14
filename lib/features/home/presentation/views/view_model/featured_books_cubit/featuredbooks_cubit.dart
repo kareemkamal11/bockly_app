@@ -5,18 +5,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'featuredbooks_state.dart';
 
-class FeaturedbooksCubit extends Cubit<FeaturedbooksState> {
-  FeaturedbooksCubit(this.homeRepo) : super(FeaturedbooksInitial());
+class FeaturedbooksCubit extends Cubit<FeaturedBooksState> {
+  FeaturedbooksCubit(this.homeRepo) : super(FeaturedBooksInitial());
 
   final HomeRepo homeRepo;
 
   Future<void> fetchFeaturedBooks() async {
-    emit(FeaturedbooksLoading());
+    emit(FeaturedBooksLoading());
     var result = await homeRepo.fetchFeaturedBooks();
 
     result.fold(
-      (failure) => emit(FeaturedbooksError(message: failure.message)),
-      (books) => emit(FeaturedbooksSuccess(books: books)),
+      (failure) => emit(FeaturedBooksError(message: failure.message)),
+      (books) => emit(FeaturedBooksSuccess(books: books)),
     );
   }
 }
