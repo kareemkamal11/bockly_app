@@ -18,7 +18,12 @@ class SimilarBooksList extends StatelessWidget {
           itemBuilder: (context, index) {
             return const Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.0),
-              child: CustomBookImage(),
+              child: CustomBookImage(
+                imageUrl: 
+                // any link to image from placehold.co
+                'https://via.placeholder.com/150'
+                ,
+              ),
             );
           },
         ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/widget/loadin_indicator.dart';
 import 'package:bookly_app/features/home/presentation/views/view_model/featured_books_cubit/featuredbooks_cubit.dart';
@@ -13,20 +15,25 @@ class FeaturedBooksListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedbooksCubit, FeaturedBooksState>(
         builder: (context, state) {
-        if( state is FeaturedBooksError){
-          return ErrorWidget(state.message);
-        } else if (state is FeaturedBooksSuccess) {
+      if (state is FeaturedBooksError) {
+        return ErrorWidget(state.message);
+      } else if (state is FeaturedBooksSuccess) {
+        log(state.books.length.toString());
         return SizedBox(
           height: Constants.maxHeight(context) / 3.9,
           child: ListView.builder(
+            physics: const BouncingScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemCount: 10,
+            itemCount: state.books.length,
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: SizedBox(
                   width: Constants.maxWidth(context) / 2.8,
-                  child: const CustomBookImage(),
+                  child: CustomBookImage(
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  ),
                 ),
               );
             },
@@ -35,7 +42,6 @@ class FeaturedBooksListView extends StatelessWidget {
       } else {
         return const Center(child: LoadinIndicator());
       }
-    
     });
   }
 }
