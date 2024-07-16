@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/widget/error_widget.dart';
 import 'package:bookly_app/core/utils/widget/loadin_indicator.dart';
 import 'package:bookly_app/features/home/presentation/views/view_model/newes_book_cubit/newes_book_cubit.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,11 @@ class NewesBooksList extends StatelessWidget {
     return BlocBuilder<NewesBookListCubit, NewesBookListState>(
       builder: (context, state) {
         if (state is NewesBookListError) {
-          return ErrorWidget(state.message);
+          return Center(
+            child: WidgetError(
+              messageError: state.message,
+            ),
+          );
         }
         if (state is NewesBookListSuccess) {
           return ListView.builder(
