@@ -30,6 +30,7 @@ class Bookly extends StatelessWidget {
         getIt.get<HomeRepoImpl>(),
         )..fetchFeaturedBooks(),
       ),
+      
       ],
       child: MaterialApp.router(
         routerConfig: AppRouter.router,

@@ -1,9 +1,7 @@
-import 'dart:developer';
 
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,8 +17,10 @@ class BookListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsViewRoute);
-        log(FeaturedBooksListView.routeName);
+        GoRouter.of(context).push(
+          AppRouter.kBookDetailsViewRoute,
+          extra: book,
+        );
       },
       child: SizedBox(
         height: 160,

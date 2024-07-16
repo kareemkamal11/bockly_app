@@ -1,13 +1,16 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/book_details/presentation/views/widgets/book_details_buttons.dart';
 import 'package:bookly_app/features/book_details/presentation/views/widgets/similar_book_list.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 import 'book_details_section.dart';
 import 'custom_details_appbar.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
+  const BookDetailsViewBody({super.key, required this.book});
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +27,13 @@ class BookDetailsViewBody extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const CustomDetailsAppBar(),
-                      const BooksDetailsSection(),
-                      const BookDetailsButtons(),
-                      const Expanded(child: SizedBox(height: 30)),
+                      BooksDetailsSection(
+                        book: book,
+                      ),
+                      BookDetailsButtons(
+                        book: book,
+                      ),
+                      const Expanded(child: SizedBox(height: 25)),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
@@ -39,7 +46,6 @@ class BookDetailsViewBody extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
               const SimilarBooksList()
             ],
           ),

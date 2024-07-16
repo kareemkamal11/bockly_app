@@ -1,16 +1,16 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/widget/loadin_indicator.dart';
 import 'package:bookly_app/features/home/presentation/views/view_model/featured_books_cubit/featuredbooks_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/widget/error_widget.dart';
 import 'custom_book_image.dart';
 
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
-
-  static late String routeName;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,6 @@ class FeaturedBooksListView extends StatelessWidget {
           ),
         );
       } else if (state is FeaturedBooksSuccess) {
-        routeName = state.books[0].volumeInfo.imageLinks.thumbnail;
         return SizedBox(
           height: Constants.maxHeight(context) / 3.9,
           child: ListView.builder(
@@ -35,9 +34,17 @@ class FeaturedBooksListView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: SizedBox(
                   width: Constants.maxWidth(context) / 2.8,
-                  child: CustomBookImage(
-                    imageUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                  child: GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(
+                        AppRouter.kBookDetailsViewRoute,
+                        extra: state.books[index],
+                      );
+                    },
+                    child: CustomBookImage(
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                    ),
                   ),
                 ),
               );
