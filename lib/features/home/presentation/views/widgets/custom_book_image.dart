@@ -14,13 +14,13 @@ class CustomBookImage extends StatelessWidget {
         aspectRatio: 2.7 / 4,
         child: CachedNetworkImage(
           imageUrl: imageUrl,
+          placeholder: (context, url) => const Center(
+            child: CircularProgressIndicator(),
+          ),
           fit: BoxFit.fill,
           errorWidget: (context, url, error) => const Icon(Icons.error),
-          
         ),
       ),
     );
   }
 }
-
-// 

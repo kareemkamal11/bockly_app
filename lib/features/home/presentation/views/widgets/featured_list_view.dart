@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/widget/loadin_indicator.dart';
@@ -18,7 +17,6 @@ class FeaturedBooksListView extends StatelessWidget {
       if (state is FeaturedBooksError) {
         return ErrorWidget(state.message);
       } else if (state is FeaturedBooksSuccess) {
-        log(state.books.length.toString());
         return SizedBox(
           height: Constants.maxHeight(context) / 3.9,
           child: ListView.builder(
