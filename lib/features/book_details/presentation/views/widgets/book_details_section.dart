@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../home/presentation/views/widgets/book_rating.dart';
@@ -15,8 +16,9 @@ class BooksDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .18),
-          child: const CustomBookImage(
-            imageUrl:  'https://via.placeholder.com/150',
+          child: CustomBookImage(
+            imageUrl:
+                FeaturedBooksListView.routeName,
           ),
         ),
         const SizedBox(height: 32),

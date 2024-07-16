@@ -1,4 +1,5 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../home/presentation/views/widgets/custom_book_image.dart';
@@ -16,13 +17,10 @@ class SimilarBooksList extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemCount: 10,
           itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5.0),
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: CustomBookImage(
-                imageUrl: 
-                // any link to image from placehold.co
-                'https://via.placeholder.com/150'
-                ,
+                imageUrl: FeaturedBooksListView.routeName,
               ),
             );
           },

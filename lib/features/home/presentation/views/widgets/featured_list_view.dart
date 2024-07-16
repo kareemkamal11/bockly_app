@@ -10,6 +10,8 @@ import 'custom_book_image.dart';
 class FeaturedBooksListView extends StatelessWidget {
   const FeaturedBooksListView({super.key});
 
+  static late String routeName;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<FeaturedbooksCubit, FeaturedBooksState>(
@@ -21,6 +23,7 @@ class FeaturedBooksListView extends StatelessWidget {
           ),
         );
       } else if (state is FeaturedBooksSuccess) {
+        routeName = state.books[0].volumeInfo.imageLinks.thumbnail;
         return SizedBox(
           height: Constants.maxHeight(context) / 3.9,
           child: ListView.builder(
