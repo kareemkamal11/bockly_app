@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -6,7 +7,9 @@ import 'custom_search_text_field.dart';
 import 'search_result_list.dart';
 
 class SearchViewBody extends StatelessWidget {
-  const SearchViewBody({super.key});
+  const SearchViewBody({super.key, required this.book});
+
+  final BookModel book;
 
   @override
   Widget build(BuildContext context) {
